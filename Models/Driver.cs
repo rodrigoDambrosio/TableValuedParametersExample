@@ -8,6 +8,15 @@ namespace TableValuedParametersExample.Model
 {
     public class Driver
     {
+        public Driver(string firstName, string lastName, int number, string photoPath, int wins)
+        {
+            FirstName = firstName;
+            LastName = lastName;
+            Number = number;
+            PhotoPath = photoPath;
+            Wins = wins;
+        }
+
         public Driver(int id, string firstName, string lastName, int number, string photoPath, int wins)
         {
             Id = id;

@@ -63,6 +63,7 @@
     <Build Include="Tables\Driver.sql" />
     <Build Include="StoreProcedures\sp_UpdateDriver.sql" />
     <Build Include="Tables\DriverType.sql" />
+    <Build Include="StoreProcedures\sp_InsertDriver.sql" />
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="PostDeployScript.sql" />

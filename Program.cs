@@ -18,15 +18,28 @@ using TableValuedParametersExample.Model;
 
 // Using a list
 
+//List<Driver> driversList = new List<Driver>
+//{
+//          new Driver(1, "Fernando", "Alonso",14,"1.jpg",60),
+//          new Driver(2, "Sebastian", "Vettel",4,"2.jpg",57)
+//  };
+//DataTable dt = Functions.CreateSQLDataRecords(driversList);
+
+//using (var conn = new SqlConnection("Data Source=127.0.0.1;Initial Catalog=Db_Tvp_Test;Persist Security Info=True;User ID=sa;Password=d0ck3rX12!4354"))
+//{
+//    conn.Open();
+//    conn.Execute("EXEC sp_UpdateDriver @param", new { param = dt.AsTableValuedParameter("DriverType") });
+//}
+
 List<Driver> driversList = new List<Driver>
 {
-          new Driver(1, "Fernando", "Alonso",14,"1.jpg",60),
-          new Driver(2, "Sebastian", "Vettel",4,"2.jpg",57)
+          new Driver("Valteri", "Bottas",77,"77.jpg",7),
+          new Driver("Mick", "Schumacher",33,"56.jpg",0)
   };
 DataTable dt = Functions.CreateSQLDataRecords(driversList);
 
 using (var conn = new SqlConnection("Data Source=127.0.0.1;Initial Catalog=Db_Tvp_Test;Persist Security Info=True;User ID=sa;Password=d0ck3rX12!4354"))
 {
     conn.Open();
-    conn.Execute("EXEC sp_UpdateDriver @param", new { param = dt.AsTableValuedParameter("DriverType") });
+    conn.Execute("EXEC sp_InsertDriver @param", new { param = dt.AsTableValuedParameter("DriverType") });
 }

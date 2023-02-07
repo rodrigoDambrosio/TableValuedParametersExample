@@ -12,7 +12,7 @@ namespace TableValuedParametersExample
 {
     public static class Functions
     {
-        public static DataTable CreateSQLDataRecords(IEnumerable<Driver> drivers)
+        public static DataTable ToDataTableFromDriverIEnumerable(IEnumerable<Driver> drivers)
         {
             // This is faster than reflection (FastMember)
             IEnumerable<Driver> data = drivers;
@@ -30,13 +30,13 @@ namespace TableValuedParametersExample
             IEnumerable<T> data = list;
 
             DataTable table = new();
-            // It needs to have the same order of the SQL Type 
+            // It needs to have the same order of the SQL Type
             try
             {
                 using var reader = ObjectReader.Create(data, typeof(T).GetProperties().Select(x => x.Name).ToArray());
                 table.Load(reader);
             }
-            catch (Exception ex)
+            catch(Exception ex)
             {
                 //Log.Error(ex.ToString());
             }
